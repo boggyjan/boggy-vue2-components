@@ -1,7 +1,7 @@
 <template>
   <div>
     Demo Page
-    <HelloWorld />
+    <HelloWorld msg="yoyoyo!" />
   </div>
 </template>
 
