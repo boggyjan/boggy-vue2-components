@@ -1,6 +1,6 @@
 <template>
   <div>
-    Hello
+    {{ msg || 'hello' }}
   </div>
 </template>
 
