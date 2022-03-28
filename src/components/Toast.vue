@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import Vue from 'vue'
+// import Vue from 'vue'
 // import Vuex from 'vuex'
 import ToastItem from '@/components/ToastItem'
 
@@ -37,10 +37,12 @@ export default {
     }
   },
 
-  created () {
-    // Vue.prototype.$toast = Vuex.Store.prototype.$toast = this.toast
-    Vue.prototype.$toast = this.toast
-  },
+  // 在Layout中 Dialog & Toast 這樣註冊
+  // mounted () {
+  //   Vue.prototype.$alert = Vuex.Store.prototype.$alert = this.$refs.dialog.alert
+  //   Vue.prototype.$confirm = Vuex.Store.prototype.$confirm = this.$refs.dialog.confirm
+  //   Vuex.Store.prototype.$toast = Vuex.Store.prototype.$toast = this.$refs.toast.toast
+  // },
 
   methods: {
     toast (text) {

@@ -268,12 +268,11 @@
       </div>
     </div>
 
-    <div v-if="demoPage === 'DialogToast'" class="dialog-toast-demo-page">
-      <!-- toast and dialog -->
-      <!-- 要放在layout中 -->
-      <Toast ref="toast" :countdown="3000" />
-      <Dialog ref="dialog" ok-label="OK" cancel-label="Cancel" />
+    <!-- 要放在layout中，然後用mounted註冊funcs -->
+    <Toast ref="toast" :countdown="3000" />
+    <Dialog ref="dialog" ok-label="OK" cancel-label="Cancel" />
 
+    <div v-if="demoPage === 'DialogToast'" class="dialog-toast-demo-page">
       <h2>Dialog and toast demo</h2>
       <p>
         Place Dialog and Toast component to layout. and call <code>await this.$alert('content')</code> or <code>await this.$confirm('content')</code> or <code>this.$toast('content')</code>.
@@ -296,6 +295,9 @@
 </template>
 
 <script>
+import Vue from 'vue'
+// import Vuex from 'vuex'
+
 import ScrollShow from './components/ScrollShow'
 import Carousel from './components/Carousel'
 import ThreeDBox from './components/ThreeDBox'
@@ -379,12 +381,15 @@ export default {
   },
 
   mounted () {
-    // dialog & toast
-    // 有用VUEX的話可以這樣註冊
+    // Dialog & Toast 這樣註冊
     /* eslint-disable */
-    // Vuex.Store.prototype.$alert = this.$refs.dialog.alert
-    // Vuex.Store.prototype.$confirm = this.$refs.dialog.confirm
-    // Vuex.Store.prototype.$toast = this.$refs.toast.toast
+    // Vue.prototype.$alert = Vuex.Store.prototype.$alert = this.$refs.dialog.alert
+    // Vue.prototype.$confirm = Vuex.Store.prototype.$confirm = this.$refs.dialog.confirm
+    // Vue.prototype.$toast = Vuex.Store.prototype.$toast = this.$refs.toast.toast
+    console.log(this.$refs)
+    Vue.prototype.$alert = this.$refs.dialog.alert
+    Vue.prototype.$confirm = this.$refs.dialog.confirm
+    Vue.prototype.$toast = this.$refs.toast.toast
     /* eslint-enable */
   },
 

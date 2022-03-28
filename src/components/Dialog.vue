@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import Vue from 'vue'
+// import Vue from 'vue'
 // import Vuex from 'vuex'
 
 const DIALOG_TYPE = {
@@ -64,12 +64,12 @@ export default {
     }
   },
 
-  created () {
-    // Vue.prototype.$alert = Vuex.Store.prototype.$alert = this.alert
-    // Vue.prototype.$confirm = Vuex.Store.prototype.$confirm = this.confirm
-    Vue.prototype.$alert = this.alert
-    Vue.prototype.$confirm = this.confirm
-  },
+  // 在Layout中 Dialog & Toast 這樣註冊
+  // mounted () {
+  //   Vue.prototype.$alert = Vuex.Store.prototype.$alert = this.$refs.dialog.alert
+  //   Vue.prototype.$confirm = Vuex.Store.prototype.$confirm = this.$refs.dialog.confirm
+  //   Vuex.Store.prototype.$toast = Vuex.Store.prototype.$toast = this.$refs.toast.toast
+  // },
 
   mounted () {
     if (window) {
