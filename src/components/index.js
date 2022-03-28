@@ -1,19 +1,3 @@
-// import HelloWorld from './HelloWorld.vue'
-
-// const Components = [
-//   HelloWorld
-// ]
-
-// const install = function (Vue) {
-//   Components.forEach(component => {
-//      Vue.component(component.name, component)
-//   })
-// }
-
-// export default {
-//   install
-// }
-
 export { default as Carousel } from './Carousel.vue'
 export { default as Dialog } from './Dialog.vue'
 export { default as Toast } from './Toast.vue'
