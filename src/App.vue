@@ -386,7 +386,6 @@ export default {
     // Vue.prototype.$alert = Vuex.Store.prototype.$alert = this.$refs.dialog.alert
     // Vue.prototype.$confirm = Vuex.Store.prototype.$confirm = this.$refs.dialog.confirm
     // Vue.prototype.$toast = Vuex.Store.prototype.$toast = this.$refs.toast.toast
-    console.log(this.$refs)
     Vue.prototype.$alert = this.$refs.dialog.alert
     Vue.prototype.$confirm = this.$refs.dialog.confirm
     Vue.prototype.$toast = this.$refs.toast.toast
