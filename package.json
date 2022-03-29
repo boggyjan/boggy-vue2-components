@@ -1,13 +1,13 @@
 {
   "name": "boggy-vue2-components",
-  "version": "0.1.7",
-  "main": "dist/boggy-vue2-components.common.js",
+  "version": "0.1.8",
+  "main": "src/components/index.js",
   "description": "My Vue2 Components",
   "author": "Boggy Jang",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "build:bak": "vue-cli-service build --target lib --name boggy-vue2-components ./src/components/index.js",
+    "build": "vue-cli-service build --target lib --name index ./src/components/index.js",
+    "build:bak2": "vue-cli-service build",
     "build:doc": "vue-cli-service build ./src/main.js --dest docs --mode development",
     "lint": "vue-cli-service lint"
   },
