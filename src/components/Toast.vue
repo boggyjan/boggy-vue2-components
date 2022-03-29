@@ -16,7 +16,7 @@
 <script>
 // import Vue from 'vue'
 // import Vuex from 'vuex'
-import ToastItem from './components/ToastItem'
+import ToastItem from './ToastItem'
 
 export default {
   components: {
