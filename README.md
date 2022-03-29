@@ -1,24 +1,11 @@
-# boggy-components
+# boggy-vue2-components
 
-## Project setup
+## Installation
 ```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn serve
+npm install boggy-vue2-components or yarn install boggy-vue2-components
 ```
 
-### Compiles and minifies for production
+### Usage
 ```
-yarn build
+Check out docs folder.
 ```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
