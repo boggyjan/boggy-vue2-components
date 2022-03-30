@@ -1,6 +1,7 @@
 module.exports = {
   publicPath: './',
   configureWebpack: {
-    devtool: 'none'
+    devtool: 'none',
+    mode: 'production'
   }
 }
