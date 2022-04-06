@@ -6,6 +6,7 @@
       <a href="#" @click="showPage('Carousel')">Carousel</a>
       <a href="#" @click="showPage('ThreeDBox')">ThreeDBox</a>
       <a href="#" @click="showPage('DragSort')">DragSort</a>
+      <a href="#" @click="showPage('TimeText')">TimeText</a>
       <a href="#" @click="showPage('Cheat')">Cheat</a>
       <a href="#" @click="showPage('TypingText')">TypingText</a>
       <a href="#" @click="showPage('DialogToast')">DialogToast</a>
@@ -238,6 +239,14 @@
       </DragSort>
     </div>
 
+    <div v-if="demoPage === 'TimeText'" class="time-text-demo-page">
+      <TimeText tag="div" :timestamp="new Date().getTime()" v-bind="timeProps" />
+      <TimeText tag="div" :timestamp="new Date().getTime() - 300000" v-bind="timeProps" />
+      <TimeText tag="div" :timestamp="new Date().getTime() - 600000" v-bind="timeProps" />
+      <TimeText tag="div" :timestamp="new Date().getTime() - 3000000" v-bind="timeProps" />
+      <TimeText tag="div" :timestamp="new Date('2021/5/6').getTime()" v-bind="timeProps" />
+    </div>
+
     <div v-if="demoPage === 'Cheat'" class="cheat-demo-page">
       <h2>Cheat 組件說明</h2>
       <p>這是拿來做金手指用的，看code。</p>
@@ -302,6 +311,7 @@ import ScrollShow from './components/ScrollShow'
 import Carousel from './components/Carousel'
 import ThreeDBox from './components/ThreeDBox'
 import DragSort from './components/DragSort'
+import TimeText from './components/TimeText'
 import Cheat from './components/Cheat'
 import TypingTextAnimation from './components/TypingTextAnimation'
 import LilychouchouTypingTextAnimation from './components/LilychouchouTypingTextAnimation'
@@ -314,6 +324,7 @@ export default {
     Carousel,
     ThreeDBox,
     DragSort,
+    TimeText,
     Cheat,
     TypingTextAnimation,
     LilychouchouTypingTextAnimation,
@@ -376,7 +387,13 @@ export default {
         'inhabited since 32,000 BC.',
         'During the Middle Ages',
         'the area was a key centre of East Slavic'
-      ]
+      ],
+
+      timeProps: {
+        tag: 'div',
+        justNow: '剛剛',
+        minutesLater: '%{n}分鐘前'
+      }
     }
   },
 
