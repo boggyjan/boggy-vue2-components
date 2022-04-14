@@ -54,7 +54,8 @@ export default {
   // have to set perspective to parent container
   // ex: perspective: 1000px;
   transform-style: preserve-3d;
-  transform-origin: center center calc(var(--w) * -0.5);
+  // fix postcss-loader prewrite calc error in build-time by "#{xxx}"
+  transform-origin: center center #{calc(var(--w) * -0.5)};
 
   .shape-group,
   .shape {
