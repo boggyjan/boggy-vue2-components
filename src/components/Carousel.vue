@@ -26,16 +26,16 @@
       v-if="_dots && !autoWidth"
       class="carousel__pagination"
     >
-      <a
+      <button
         v-for="(i, idx) in pagesTotal"
         :key="`carousel__paginationBtn--${ idx }`"
         :class="{ active: currentPage === idx }"
         class="carousel__paginationBtn"
-        href="#"
+        type="button"
         @click.prevent="slideToPage(idx)"
       >
         {{ i }}
-      </a>
+      </button>
     </div>
 
     <div
@@ -537,8 +537,11 @@ export default {
     display: inline-block;
     width: 8px;
     height: 8px;
+    overflow: hidden;
     margin: 0 5px;
+    padding: 0;
     background: rgba(102,102,102,0.4);
+    border: 0;
     border-radius: 10px;
     color: rgba(0,0,0,0);
     transition: background 0.6s;
