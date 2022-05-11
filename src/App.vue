@@ -9,6 +9,7 @@
       <a href="#" @click="showPage('TimeText')">TimeText</a>
       <a href="#" @click="showPage('Cheat')">Cheat</a>
       <a href="#" @click="showPage('TypingText')">TypingText</a>
+      <a href="#" @click="showPage('SplitLetters')">SplitLetters</a>
       <a href="#" @click="showPage('DialogToast')">DialogToast</a>
     </nav>
 
@@ -277,6 +278,16 @@
       </div>
     </div>
 
+    <div v-if="demoPage === 'SplitLetters'" class="split-letters-demo">
+      <SplitLetters tag="h2" spanClass="titleAni" class="title" :textContent="splitLettersDemoTitle" />
+      <SplitLetters tag="div" spanClass="descAni" textContent="是否看過這種標題逐字動畫呢？原理很簡單，只要將文字分別以標籤包起來，給予動態效果與延遲時間，就完成囉。這個工具會協助你將不包含HTML的文案逐字分割，並標示索引。你可以透過var(--index)搭配calc()來計算想要的延遲時間，自由地創作出有趣的動畫。" />
+      <div class="note">
+        <SplitLetters tag="strong" spanClass="noteAni" textContent="＊本工具並不包含動畫的部分，關於動畫CSS範例，請參考原始碼。不要過度使用影響效能喔！" />
+      </div>
+
+      <input v-model="splitLettersDemoTitle" type="text">
+    </div>
+
     <!-- 要放在layout中，然後用mounted註冊funcs -->
     <Toast ref="toast" :countdown="3000" />
     <Dialog ref="dialog" ok-label="OK" cancel-label="Cancel" />
@@ -315,6 +326,7 @@ import TimeText from './components/TimeText'
 import Cheat from './components/Cheat'
 import TypingTextAnimation from './components/TypingTextAnimation'
 import LilychouchouTypingTextAnimation from './components/LilychouchouTypingTextAnimation'
+import SplitLetters from './components/SplitLetters'
 import Dialog from './components/Dialog'
 import Toast from './components/Toast'
 
@@ -328,6 +340,7 @@ export default {
     Cheat,
     TypingTextAnimation,
     LilychouchouTypingTextAnimation,
+    SplitLetters,
     Dialog,
     Toast
   },
@@ -388,6 +401,8 @@ export default {
         'During the Middle Ages',
         'the area was a key centre of East Slavic'
       ],
+
+      splitLettersDemoTitle: 'SplitLetters 組件說明',
 
       timeProps: {
         tag: 'div',
@@ -601,6 +616,103 @@ export default {
     font-weight: 100;
     text-align: center;
     text-shadow: 0 0 16px #fff;
+  }
+}
+
+.split-letters-demo {
+  max-width: 600px;
+  margin: 200px auto;
+
+  .title {
+    overflow: hidden;
+  }
+
+  .note {
+    margin-top: 25px;
+    opacity: 0;
+    animation: fadeIn 2s;
+    animation-delay: 30s;
+    animation-fill-mode: forwards;
+  }
+
+  /* letter animations  */
+  .titleAni {
+    /* transform需要block屬性 */
+    display: inline-block;
+    /* 讓inline block的空白也能出現 */
+    white-space: break-spaces;
+    animation: upIn 1s;
+    animation-delay: calc(0.08s * var(--i));
+    animation-fill-mode: forwards;
+    font-family: serif;
+    font-size: 1.5em;
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  .descAni {
+    /* transform需要block屬性 */
+    display: inline-block;
+    /* 讓inline block的空白也能出現 */
+    white-space: break-spaces;
+    animation: fadeZoomIn 1s;
+    animation-delay: calc(0.2s * var(--i) + 2s);
+    animation-fill-mode: forwards;
+    font-family: sans-serif;
+    opacity: 0;
+  }
+
+  .noteAni {
+    /* transform需要block屬性 */
+    display: inline-block;
+    /* 讓inline block的空白也能出現 */
+    white-space: break-spaces;
+    animation: wave 3s infinite;
+    animation-delay: calc(0.2s * var(--i));
+    font-family: sans-serif;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes upIn {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeZoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(5) translateY(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes wave {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
 </style>

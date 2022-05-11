@@ -1,6 +1,6 @@
 {
   "name": "boggy-vue2-components",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "main": "dist/index.common.js",
   "description": "My Vue2 Components",
   "author": "Boggy Jang",
