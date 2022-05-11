@@ -279,10 +279,10 @@
     </div>
 
     <div v-if="demoPage === 'SplitLetters'" class="split-letters-demo">
-      <SplitLetters tag="h2" spanClass="titleAni" class="title" :textContent="splitLettersDemoTitle" />
-      <SplitLetters tag="div" spanClass="descAni" textContent="是否看過這種標題逐字動畫呢？原理很簡單，只要將文字分別以標籤包起來，給予動態效果與延遲時間，就完成囉。這個工具會協助你將不包含HTML的文案逐字分割，並標示索引。你可以透過var(--index)搭配calc()來計算想要的延遲時間，自由地創作出有趣的動畫。" />
+      <SplitLetters tag="h2" span-class="titleAni" class="title" :text-content="splitLettersDemoTitle" />
+      <SplitLetters tag="div" span-class="descAni" text-content="是否看過這種標題逐字動畫呢？原理很簡單，只要將文字分別以標籤包起來，給予動態效果與延遲時間，就完成囉。這個工具會協助你將不包含HTML的文案逐字分割，並標示索引。你可以透過var(--index)搭配calc()來計算想要的延遲時間，自由地創作出有趣的動畫。" />
       <div class="note">
-        <SplitLetters tag="strong" spanClass="noteAni" textContent="＊本工具並不包含動畫的部分，關於動畫CSS範例，請參考原始碼。不要過度使用影響效能喔！" />
+        <SplitLetters tag="strong" span-class="noteAni" text-content="＊本工具並不包含動畫的部分，關於動畫CSS範例，請參考原始碼。不要過度使用影響效能喔！" />
       </div>
 
       <input v-model="splitLettersDemoTitle" type="text">
