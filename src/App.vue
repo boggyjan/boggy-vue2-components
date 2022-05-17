@@ -263,18 +263,30 @@
       <h3>Regular Typing Text Animation</h3>
       <TypingTextAnimation
         :content="title[titleIndex]"
-        :speed="5"
+        :speed="100"
+        :breath="300"
+        :hold="1000"
         @complete="changeTitle()"
       />
 
       <h3>Lily Chou-Chou Typing Text Animation</h3>
       <div class="lilychouchou">
-        <LilychouchouTypingTextAnimation :content="title2[title2Index]" :speed="5" @complete="changeTitle2()" />
+        <LilychouchouTypingTextAnimation
+          :content="title2[title2Index]"
+          :speed="200"
+          :hold="1000"
+          @complete="changeTitle2()"
+        />
       </div>
 
       <h3>Lily Chou-Chou Typing Text Animation (English)</h3>
       <div class="lilychouchou">
-        <LilychouchouTypingTextAnimation :content="title3[title3Index]" :speed="5" @complete="changeTitle3()" />
+        <LilychouchouTypingTextAnimation
+          :content="title3[title3Index]"
+          :speed="200"
+          :hold="1000"
+          @complete="changeTitle3()"
+        />
       </div>
     </div>
 

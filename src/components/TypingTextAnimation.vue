@@ -6,8 +6,6 @@
 </template>
 
 <script>
-import { TweenMax, SteppedEase } from 'gsap'
-
 export default {
   props: {
     content: {
@@ -16,14 +14,22 @@ export default {
     },
     speed: {
       type: Number,
-      default: 5
+      default: 100
+    },
+    breath: {
+      type: Number,
+      default: 300
+    },
+    hold: {
+      type: Number,
+      default: 1000
     }
   },
 
   data () {
     return {
-      tween: null,
-      textSliceCount: 0
+      textSliceCount: 0,
+      breathHold: [' ', '　', '、', '。', '，', '？', '！', ',', '.', '?', '!']
     }
   },
 
@@ -33,19 +39,23 @@ export default {
       handler () {
         this.textSliceCount = 0
 
-        if (this.tween) {
-          this.tween.kill()
-        }
+        const increaseTextSliceCount = () => {
+          this.textSliceCount++
 
-        this.tween = TweenMax.to(this, this.content.length / this.speed, {
-          textSliceCount: this.content.length,
-          ease: SteppedEase.config(this.content.length),
-          onComplete: () => {
+          if (this.textSliceCount < this.content.length) {
+            if (this.breathHold.includes(this.content[this.textSliceCount - 1])) {
+              setTimeout(increaseTextSliceCount, this.breath)
+            } else {
+              setTimeout(increaseTextSliceCount, this.speed)
+            }
+          } else {
             setTimeout(() => {
               this.$emit('complete')
-            }, 1000)
+            }, this.hold)
           }
-        })
+        }
+
+        setTimeout(increaseTextSliceCount, this.speed)
       }
     }
   }
