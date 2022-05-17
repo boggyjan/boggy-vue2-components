@@ -1,6 +1,6 @@
 {
   "name": "boggy-vue2-components",
-  "version": "0.1.18",
+  "version": "0.1.19",
   "main": "dist/index.common.js",
   "description": "My Vue2 Components",
   "author": "Boggy Jang",
@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "gsap": "^3.9.1",
     "vue": "^2.6.11"
   },
   "devDependencies": {
