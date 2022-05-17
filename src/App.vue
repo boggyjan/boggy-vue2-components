@@ -250,7 +250,7 @@
 
     <div v-if="demoPage === 'Cheat'" class="cheat-demo-page">
       <h2>Cheat 組件說明</h2>
-      <p>這是拿來做金手指用的，看code。</p>
+      <p>這是拿來做金手指用的。你可以試著輸入看看：「上上下下左左右右ab」、「TEST」、「test」或按下ESC鍵，都會驅動不同的結果</p>
       <Cheat code="ArrowUp,ArrowUp,ArrowDown,ArrowDown,ArrowLeft,ArrowLeft,ArrowRight,ArrowRight,a,b" @complete="show('cheat code [ArrowUp,ArrowUp,ArrowDown,ArrowDown,ArrowLeft,ArrowLeft,ArrowRight,ArrowRight,a,b] complete!')" />
       <Cheat code="T,E,S,T" @complete="show('cheat code [T,E,S,T] complete!')" />
       <Cheat code="t,e,s,t" @complete="show('cheat code [t,e,s,t] complete!')" />
