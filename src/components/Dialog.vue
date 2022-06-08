@@ -10,13 +10,13 @@
           ref="cancelBtn"
           class="dialog__btn dialog__btn--secondary"
         >
-          {{ dialogCancelLabel }}
+          {{ cancelLabel }}
         </button>
         <button
           ref="okBtn"
           class="dialog__btn dialog__btn--primary"
         >
-          {{ dialogOkLabel }}
+          {{ okLabel }}
         </button>
       </div>
     </div>
@@ -49,15 +49,6 @@ export default {
 
       // const
       DIALOG_TYPE
-    }
-  },
-
-  computed: {
-    dialogCancelLabel () {
-      return this.cancelLabel
-    },
-    dialogOkLabel () {
-      return this.okLabel
     }
   },
 
