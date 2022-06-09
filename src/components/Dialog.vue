@@ -1,22 +1,22 @@
 <template>
   <div v-if="visible" class="dialog">
     <div class="dialog__body">
-      <div class="dialog__text">
-        {{ text }}
-      </div>
+      <!-- eslint-disable -->
+      <div class="dialog__text" v-html="text.replace(/\n|\r/g, '<br>')" />
+      <!-- eslint-enable -->
       <div class="dialog__action">
         <button
           v-if="type === DIALOG_TYPE.CONFIRM"
           ref="cancelBtn"
           class="dialog__btn dialog__btn--secondary"
         >
-          {{ cancelLabel }}
+          {{ currentCancelLabel }}
         </button>
         <button
           ref="okBtn"
           class="dialog__btn dialog__btn--primary"
         >
-          {{ okLabel }}
+          {{ currentOkLabel }}
         </button>
       </div>
     </div>
@@ -46,6 +46,8 @@ export default {
       visible: false,
       text: '',
       type: '',
+      currentOkLabel: '',
+      currentCancelLabel: '',
 
       // const
       DIALOG_TYPE
@@ -73,11 +75,18 @@ export default {
   },
 
   methods: {
-    alert (text) {
+    setLabelText (options = {}) {
+      this.currentOkLabel = options.okLabel || this.okLabel
+      this.currentCancelLabel = options.cancelLabel || this.cancelLabel
+    },
+
+    alert (text, options) {
       return new Promise((resolve) => {
-        this.visible = true
+        this.setLabelText(options)
         this.text = text
         this.type = this.DIALOG_TYPE.ALERT
+        this.visible = true
+
         this.$nextTick(() => {
           const onOK = () => {
             if (this.$refs.okBtn) {
@@ -93,11 +102,13 @@ export default {
       })
     },
 
-    confirm (text) {
+    confirm (text, options) {
       return new Promise((resolve) => {
-        this.visible = true
+        this.setLabelText(options)
         this.text = text
         this.type = this.DIALOG_TYPE.CONFIRM
+        this.visible = true
+
         this.$nextTick(() => {
           const onOK = () => {
             if (this.$refs.okBtn) {

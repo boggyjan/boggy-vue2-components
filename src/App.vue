@@ -313,11 +313,17 @@
       <button @click="showAlert()">
         $alert()
       </button>
+      <button @click="showAlertWithCustomLabel()">
+        $alert() with custom label
+      </button>
       <button @click="showAlertFromStore()">
-        call $alert() from store
+        $alert() from store
       </button>
       <button @click="showConfirm()">
         $confirm()
+      </button>
+      <button @click="showConfirmWithCustomLabel()">
+        $confirm with custom label
       </button>
       <button @click="showToast()">
         $toast()
@@ -476,11 +482,28 @@ export default {
 
     // Dialog demo func
     async showAlert () {
-      await this.$alert('This is a alert')
+      await this.$alert('This is a alert \n This is a alert')
+    },
+
+    async showAlertWithCustomLabel () {
+      await this.$alert('This is a alert with custom label', {
+        okLabel: '我知道了！'
+      })
     },
 
     async showConfirm () {
       if (await this.$confirm('This is a confirm')) {
+        await this.$alert('Click OK')
+      } else {
+        await this.$alert('Click Cancel')
+      }
+    },
+
+    async showConfirmWithCustomLabel () {
+      if (await this.$confirm('This is a confirm with custom label', {
+        okLabel: '好喔～',
+        cancelLabel: '算了'
+      })) {
         await this.$alert('Click OK')
       } else {
         await this.$alert('Click Cancel')
