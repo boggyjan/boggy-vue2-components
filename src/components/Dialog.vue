@@ -89,15 +89,13 @@ export default {
 
         this.$nextTick(() => {
           const onOK = () => {
-            if (this.$refs.okBtn) {
-              this.$refs.okBtn.removeEventListener('click', onOK)
-            }
+            this.$refs.okBtn?.removeEventListener('click', onOK)
 
             this.visible = false
             resolve(true)
           }
 
-          this.$refs.okBtn.addEventListener('click', onOK)
+          this.$refs.okBtn?.addEventListener('click', onOK)
         })
       })
     },
@@ -111,26 +109,22 @@ export default {
 
         this.$nextTick(() => {
           const onOK = () => {
-            if (this.$refs.okBtn) {
-              this.$refs.okBtn.removeEventListener('click', onOK)
-            }
+            this.$refs.okBtn?.removeEventListener('click', onOK)
 
             this.visible = false
             resolve(true)
           }
 
-          this.$refs.okBtn.addEventListener('click', onOK)
+          this.$refs.okBtn?.addEventListener('click', onOK)
 
           const onCancel = () => {
-            if (this.$refs.cancelBtn) {
-              this.$refs.cancelBtn.removeEventListener('click', onCancel)
-            }
+            this.$refs.cancelBtn?.removeEventListener('click', onCancel)
 
             this.visible = false
             resolve(false)
           }
 
-          this.$refs.cancelBtn.addEventListener('click', onCancel)
+          this.$refs.cancelBtn?.addEventListener('click', onCancel)
         })
       })
     },
