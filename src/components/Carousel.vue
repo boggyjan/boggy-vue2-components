@@ -361,9 +361,9 @@ export default {
       document.removeEventListener('touchforcechange', this.drag)
       document.removeEventListener('touchend', this.endDrag)
 
-      if (this.pointerStartX - this.pointerX > 100) {
+      if (this.pointerStartX - this.pointerX > 50) {
         this.nextPage()
-      } else if (this.pointerStartX - this.pointerX < -100) {
+      } else if (this.pointerStartX - this.pointerX < -50) {
         this.prevPage()
       }
 
