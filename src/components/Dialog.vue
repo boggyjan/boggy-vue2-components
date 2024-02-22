@@ -81,6 +81,10 @@ export default {
     },
 
     alert (text, options) {
+      if (process.server) {
+        return
+      }
+
       return new Promise((resolve) => {
         this.setLabelText(options)
         this.text = text
@@ -101,6 +105,10 @@ export default {
     },
 
     confirm (text, options) {
+      if (process.server) {
+        return
+      }
+
       return new Promise((resolve) => {
         this.setLabelText(options)
         this.text = text
@@ -161,6 +169,8 @@ export default {
   }
 
   &__text {
+    max-height: 50vh;
+    overflow-y: auto;
     margin-bottom: 20px;
   }
 
